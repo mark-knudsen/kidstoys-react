@@ -3,6 +3,7 @@ import useStore from './store/store';
 import cartStore from './store/cartstore';
 import { useEffect, useState } from 'react';
 import Product from './models/productModel';
+import ProductItem from './components/productItem';
 
 function App() {
   const products = useStore((state) => state.productData);
@@ -12,31 +13,21 @@ function App() {
   const [showAlert, setAlert] = useState(false);
   const error = useStore((state) => state.error); // Get error from store
 
-  let productOne = [];
   useEffect(() => {
-    const fetchData = async () => {
-      await getProducts();
-      // Additional data fetching can be added here if needed
-    };
-
-    fetchData();
+    getProducts();
     console.log(products)
-  }, [getProducts]);
-
-
+  }, []);
 
   const sendProductToCart = (product) => {
-    //const productData = JSON.parse(product);
     sendToCart(product);
-    console.log(productOne);
+    console.log(product);
+    console.log(cart);
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
-    }, 10000);
+    }, 1000);
 
   };
-
-
 
   let alert = <div></div>;
 
@@ -47,11 +38,14 @@ function App() {
     </div>
   }
 
+  let productContent = products.map((product) =>{
+    return <ProductItem product={product}></ProductItem>
+  });
 
   return (
     <div className="App">
-       {JSON.stringify(products)}
-
+       {/* {JSON.stringify(products)} */}
+       {productContent}
 
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -63,19 +57,13 @@ function App() {
             <ul class="navbar-nav">
 
               <li class="nav-item">
-                <i class="bi bi-bag-fill" onClick={() => sendProductToCart(products.products[0])}></i>
+                <i class="bi bi-bag-fill" onClick={() => sendProductToCart(products[0])}></i>
               </li>
             </ul>
           </div>
-
         </div>
       </nav>
-
       {alert}
-
-
-
-
     </div>
   );
 }

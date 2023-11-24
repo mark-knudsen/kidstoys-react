@@ -1,4 +1,4 @@
-class Product {
+export default class Product {
     id;
     name;
     description;
@@ -20,10 +20,4 @@ class Product {
         this.created_at = created_at;
         this.updated_at = updated_at;
     }
-
-    toString() {
-        return `Id: ${this.id}, Name: ${this.name}, Price: ${this.price}`;
-    }
-    
 }
-export default Product;

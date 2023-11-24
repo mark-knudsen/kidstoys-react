@@ -1,14 +1,13 @@
 import { create } from 'zustand';
-import Product from '../models/productModel';
+import { produce } from "immer"; // to be able to push object to array
 
-const cartStore = create(set => ({
+const cartStore = create((set) => ({
     cartData: [],
-    addToCart: (product = Product) => {
-        set((state) => ({
-            cartData: (state.cartData += product)
+    addToCart: (product) => {
+        set(produce((state) => {
+            state.cartData.push(product); 
         }))
     }   
-
 }));
 
 export default cartStore;
