@@ -2,27 +2,43 @@ import { create } from 'zustand';
 import axios from 'axios';
 
 const useStore = create((set, get) => ({
+    loading: false,
+    hasErrors: false,
+    errorMessage: "no error",
+
     productData: [],
-    categoriesData: [],
-    error: null, // Add an error property to store potential errors
+    productFilter: "",
+    categoryData: [],
+    categoryFilter: "",
+
     getProductData: async () => {
+        set(() => ({ loading: true }));
         try {
             const response = await axios.get('http://localhost:8000/api/products');
             set((state) => ({
                 productData: (state.productData = response.data.products), // really anoying that it wants to name the array 
-                error: null
-            }));
+                loading: false
+                }));
+            } catch (err) {
+            set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
+          }
+    },
+    setProductFilter: (value) =>{
+        set(() => ({ productFilter: value }));
+    },
 
-        } catch (error) {
-            console.error('Error fetching products:', error);
-            set({ error: error.message });
+    getCategoryData: async () => {
+        try {
+            const response = await axios.get('http://localhost:8000/api/categories');
+            set((state) => ({
+                categoryData: (state.categoryData = response.data.categories)
+                }));
+            } catch (err) {
+            set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
         }
     },
-    getCategoriesData: async () => {
-        const response = await axios.get('http://localhost:8000/api/categories');
-        set((state) => ({
-            categoriesData: (state.categoriesData = response.data)
-        }))
+    setCategoryFilter: (value) =>{
+        set(() => ({ categoryFilter: value }));
     },
 
 }));

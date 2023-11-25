@@ -3,25 +3,33 @@ import useStore from './store/store';
 import cartStore from './store/cartstore';
 import { useEffect, useState } from 'react';
 import Product from './models/productModel';
-import ProductItem from './components/productItem';
+import ProductList from './components/productList';
+import Loading from './components/loading.js';
 
 function App() {
   const products = useStore((state) => state.productData);
   const getProducts = useStore((state) => state.getProductData);
+  const productFilter = useStore((state) => state.productFilter);
+  const setProductFilter = useStore((state) => state.setProductFilter);
   const cart = cartStore((state) => state.cartData)
   const sendToCart = cartStore((state) => state.addToCart);
   const [showAlert, setAlert] = useState(false);
-  const error = useStore((state) => state.error); // Get error from store
+  const categories = useStore((state) => state.categoryData);
+  const getCategories = useStore((state) => state.getCategoryData);
+  const categoryFilter = useStore((state) => state.categoryFilter);
+  const setCategoryFilter = useStore((state) => state.setCategoryFilter);
 
   useEffect(() => {
     getProducts();
-    console.log(products)
+    getCategories(); 
+    // console.log(products)
+    // need to have a select thing to show categories, then when selected you will filter products by the selected category
   }, []);
 
   const sendProductToCart = (product) => {
     sendToCart(product);
-    console.log(product);
-    console.log(cart);
+    // console.log(product);
+    // console.log(cart);
     setAlert(true);
     setTimeout(() => {
       setAlert(false);
@@ -32,38 +40,47 @@ function App() {
   let alert = <div></div>;
 
   if (showAlert === true) {
-    alert = <div class="alert alert-info alert-dismissible" role="alert">
+    alert = <div className="alert alert-info alert-dismissible" role="alert">
       {JSON.stringify(cart)}
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   }
 
-  let productContent = products.map((product) =>{
-    return <ProductItem product={product}></ProductItem>
-  });
+  let productListContent = <ProductList products={products}></ProductList>
+
+  let categoryOptions = categories.map((category, id) =>{
+    return <option value={category}> {category.name}</option>
+    });
+
+    let categoryList = <select>{categoryOptions}</select>
 
   return (
     <div className="App">
        {/* {JSON.stringify(products)} */}
-       {productContent}
+       {/* {JSON.stringify(categories)} */}
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">Navbar</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
 
-              <li class="nav-item">
-                <i class="bi bi-bag-fill" onClick={() => sendProductToCart(products[0])}></i>
+              <li className="nav-item">
+                <i className="bi bi-bag-fill" onClick={() => sendProductToCart(products[0])}></i>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+       <input className='Search' placeholder='Search' onChange={(e)=> setProductFilter(e.target.value)} value={productFilter} autoFocus></input>
+       {categoryList}
+       {productListContent}
+
       {alert}
+      <Loading></Loading>
     </div>
   );
 }

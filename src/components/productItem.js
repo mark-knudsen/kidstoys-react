@@ -3,7 +3,7 @@ import '../App.css';
 function ProductItem({product}) {
     return (
         <div className='border-2 border-black rounded-md imageZoom'>
-            {/* {<img className='object-contain rounded-md h-96 w-170' src={product.imagePath}></img>} */}
+             <img src={require("../images/" + ((product.imagePath != null) ? product.imagePath : "None") + ".jpg")} />
             <p>{product.name}</p>
             <p>{product.description}</p>
             <p>Price: {product.price} </p>
