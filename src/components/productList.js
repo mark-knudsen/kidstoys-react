@@ -4,10 +4,14 @@ import ProductItem from './productItem';
 
 function ProductList({products}) { 
     const productFilter = useStore((state) => state.productFilter);
+    const categoryFilter = useStore((state) => state.categoryFilter);
 
-    let productContent = products.filter(product => product.name.includes(productFilter) || productFilter === "").map((product, id) =>{
+    let productContent = products.filter(product => product.name.toLowerCase().includes(productFilter) || productFilter === "").map((product, id) =>{
     return <ProductItem product={product} key={id}></ProductItem>
     });
+    // let productContent2 = products.filter(product => product.category.toLowerCase().includes(productFilter) || productFilter === "").map((product, id) =>{
+    // return <ProductItem product={product} key={id}></ProductItem>
+    // });
 
     return (
         <div>

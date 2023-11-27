@@ -48,9 +48,9 @@ function App() {
 
   let productListContent = <ProductList products={products}></ProductList>
 
-  let categoryOptions = categories.map((category, id) =>{
-    return <option value={category}> {category.name}</option>
-    });
+  let categoryOptions = (categories.map((category, id) =>{
+    return <option value={category} onClick={() => setCategoryFilter(category)} key={id}> {category.name}</option>
+    }));
 
     let categoryList = <select>{categoryOptions}</select>
 
