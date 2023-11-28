@@ -14,15 +14,15 @@ function FrontPage() {
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="../images/test/test-new-1.jpg" class="d-block w-100" alt="..."></img>
+                            <img src="../images/test/test-new-1.jpg" class="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/test/test-new-2.jpg" class="d-block w-100" alt="..."></img>
+                            <img src="../images/test/test-new-2.jpg" class="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div class="carousel-item">
-                            <img src="../images/test/test-new-3.jpg" class="d-block w-100" alt="..."></img>
+                            <img src="../images/test/test-new-3.jpg" class="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                     </div>
@@ -37,39 +37,41 @@ function FrontPage() {
                 </div>
             </div>
 
+            <div>
+                <h1>Recent added products</h1>
+            </div>
 
-            <div class="row row-cols-3 row-cols-md-3 g-1 align-items-start">
-                <div class="col">
-                    <div class="card card-style">
-                        <img src="../images/test/test-1.jpg" class="card-img-top" alt="..."></img>
-                        <div class="card-body">
-                            <h5 class="card-title">Kids toy 1</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                <div className="col">
+                    <div className="card card-style d-flex justify-content-center align-items-center">
+                        <img src="../images/test/test-1.jpg" className="card-img-top img-fluid" alt="..."></img>
+                        <div className="card-body text-center">
+                            <h5 className="card-title">Kids toy 1</h5>
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card card-style">
-                        <img src="../images/test/test-2.jpg" class="card-img-top" alt="..."></img>
-                        <div class="card-body">
-                            <h5 class="card-title">Kids toy 2</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div className="col">
+                    <div className="card card-style d-flex justify-content-center align-items-center">
+                        <img src="../images/test/test-2.jpg" className="card-img-top img-fluid" alt="..."></img>
+                        <div className="card-body text-center">
+                            <h5 className="card-title">Kids toy 1</h5>
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card card-style">
-                        <img src="../images/test/test-3.jpg" class="card-img-top" alt="..."></img>
-                        <div class="card-body">
-                            <h5 class="card-title">Kids toy 3</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                <div className="col">
+                    <div className="card card-style d-flex justify-content-center align-items-center">
+                        <img src="../images/test/test-3.jpg" className="card-img-top img-fluid" alt="..."></img>
+                        <div className="card-body text-center">
+                            <h5 className="card-title">Kids toy 1</h5>
+                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
