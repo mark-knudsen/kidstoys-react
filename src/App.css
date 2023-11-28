@@ -32,16 +32,30 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-img{
+img {
   width: 200px;
-  border-radius: 12px;
+  /*border-radius: 12px;*/
 }
 
-.Search{
+.Search {
   margin: 1rem;
+}
+
+.carousel-container {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.card-style {
+  width: 18rem;
+  justify-content: right;
 }
