@@ -44,7 +44,13 @@ img {
 }
 
 .Search {
-  margin: 1rem;
+  margin-left: 1rem;  
+  margin-right: 1rem;
+}
+.Search-Btn {
+  margin-left: 1rem;  
+  margin-right: 1rem;
+  
 }
 .cartItem{
   transform: translate(-122px,0);
@@ -79,6 +85,15 @@ img {
 }
 
 .card-style {
-  width: 18rem;
   justify-content: right;
+}
+
+.navbar-color {
+  background-color: #cba673;
+}
+
+.nav-search {
+  width: 80%;
+  margin-right: 50px;
+
 }

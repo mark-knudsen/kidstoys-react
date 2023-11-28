@@ -3,13 +3,13 @@ import FrontPage from './pages/FrontPage.js';
 import CartPage from './pages/CartPage.js';
 import ProductPage from './pages/ProductPage.js';
 import ProductsPage from './pages/ProductsPage.js';
-import { useNavigate } from  "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    let path; 
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path;
     navigate(path);
   }
 
@@ -26,12 +26,12 @@ function App() {
     </div>
 
       <header className="App-header">
-          <Routes>
-            <Route path="kidstoys/" element={<FrontPage></FrontPage>}></Route>
-            <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
-            <Route path="kidstoys/product" element={<ProductPage></ProductPage>}></Route>
-            <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
-          </Routes> 
+        <Routes>
+          <Route path="kidstoys/" element={<FrontPage></FrontPage>}></Route>
+          <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
+          <Route path="kidstoys/product" element={<ProductPage></ProductPage>}></Route>
+          <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
+        </Routes>
       </header>
     </div>
 
