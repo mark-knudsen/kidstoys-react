@@ -45,3 +45,14 @@ img{
 .Search{
   margin: 1rem;
 }
+
+.cartItem{
+  transform: translate(-122px,0);
+  width: 1200px;
+
+
+}
+
+.biggerMarginT{
+  margin-top: 90px;
+}

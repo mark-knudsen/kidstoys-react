@@ -16,12 +16,12 @@ function App() {
   return (
     <div className="App">
     
-    <div class="hidden sm:ml-6 sm:block">
-      <div class="flex space-x-4">
-        <button class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys")}>Front Page</button>
-        <button class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/products")}>products Page</button>
-        <button class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/product")}>Product Page</button>
-        <button class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/cart")}>Cart</button>
+    <div className="hidden sm:ml-6 sm:block">
+      <div className="flex space-x-4">
+        <button className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys")}>Front Page</button>
+        <button className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/products")}>products Page</button>
+        <button className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/product")}>Product Page</button>
+        <button className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" onClick={()=> navigate("kidstoys/cart")}>Cart</button>
       </div>
     </div>
 
