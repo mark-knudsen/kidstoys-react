@@ -26,8 +26,11 @@ const cartStore = create((set) => ({
     addToCart: (product) => {
         set(produce((state) => {
             state.cartData.push(product); 
-        }))
-    }   
+        }));
+    }, 
+    clearCart: () =>{
+        set(() => ({ cartData: [] }));
+    }
 }));
 
 export default cartStore;

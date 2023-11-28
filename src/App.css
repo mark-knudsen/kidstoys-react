@@ -55,6 +55,22 @@ img {
   margin-top: 90px;
 }
 
+.cartCheckoutDiv{
+  width: 300px;
+  height: 300px;
+
+  border-radius: 8px;
+  position: fixed;
+  top: 14%;
+  right: 1%;
+}
+
+.top{
+  position: fixed;
+  top: 5%;
+  right: 40%;
+}
+
 .carousel-container {
   width: 100%;
   text-align: center;
