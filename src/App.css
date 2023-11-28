@@ -52,13 +52,20 @@ img {
   margin-right: 1rem;
   
 }
+.cartItem{
+  transform: translate(-122px,0);
+  width: 1200px;
+}
+
+.biggerMarginT{
+  margin-top: 90px;
+}
 
 .carousel-container {
   width: 100%;
   text-align: center;
   justify-content: center;
   align-content: center;
-
 }
 
 .card-style {

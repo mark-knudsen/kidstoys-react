@@ -1,11 +1,15 @@
 import '../App.css';
-import useStore from '../store/store';
+import cartStore from '../store/cartstore.js';
+import CartList from "../components/cartList.js";
 
 function CartPage() { 
+    const cart = cartStore((state) => state.cartData);
+
+    let cartListContent = <CartList cart={cart}></CartList>
 
     return (
         <div>
-            cart page
+            {cartListContent}
         </div>
     );
 }
