@@ -2,59 +2,52 @@ import '../App.css';
 import useStore from '../store/store.js';
 import cartStore from '../store/cartstore.js';
 import { useEffect, useState } from 'react';
-import ProductList from '../components/productList.js';
 import Loading from '../components/loading.js';
 import { useParams } from 'react-router-dom';
  
 function ProductPage() {
-
     const params = useParams();
 
-
-    const products = useStore((state) => state.productData);
-    const getProducts = useStore((state) => state.getProductData);
-
+    const product = useStore((state) => state.singleProduct);
+    const getProduct = useStore((state) => state.getProductDataById);
     const sendToCart = cartStore((state) => state.addToCart);
-
-    const [product, setProduct] = useState(Object);
+    const [showAlert, setAlert] = useState(false);
   
     useEffect(() => {
-        getThings();
-        //setProduct(products.filter(x => x.id = params.id));
-        //setProduct(products[0]);
-        console.log(product);
+        getProduct(params.id);
     }, []);
     
-    const getThings = async () =>{
-        getProducts().then(console.log(products));
-     //   console.log(products);
+    const sendProductToCart = (productItem) => {
+      sendToCart(productItem);
 
-    }
-    
-    const sendProductToCart = (product) => {
-      sendToCart(product);
-      // console.log(product);
-      // console.log(cart);
-    //   setAlert(true);
-    //   setTimeout(() => {
-    //   }, 1000);
-  
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false)
+      }, 1000);
     };
+
+       let alert = <div></div>;
+  
+    if (showAlert === true) {
+      alert = <div className="alert alert-info alert-dismissible" role="alert">
+        {JSON.stringify(cart)}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    }
    
     return (
         <div className="App">
- 
+            <Loading></Loading>
+            {alert}
           <div className='py-3'>
             <div className='contanier'>
               <div className='row'>
- 
-                <div className="col-md-4 border-end">
+         
+                 <div className="col-md-4 border-end">
                   <img src={require("../images/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg")}/>
                 </div>
-
-                {product.name}
  
-                {/* <div className="col-md-8">
+                <div className="col-md-8">
                   <h6>
                     {product.name}
                   </h6>
@@ -73,7 +66,7 @@ function ProductPage() {
                       <button type="button" className="btn btn-primary w-100">Add To Cart</button>
                     </div>
                   </div>
-                </div> */}
+                </div> 
  
  
               </div>

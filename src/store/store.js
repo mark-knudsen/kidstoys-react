@@ -10,6 +10,7 @@ const useStore = create((set, get) => ({
     hasErrors: false,
     errorMessage: "no error",
 
+    singleProduct: [],
     productData: [],
     productFilter: "",
     categoryData: [],
@@ -27,16 +28,20 @@ const useStore = create((set, get) => ({
             set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
           }
     },
-    getProductDataById: async () => {
+    getProductDataById: async (id) => {
         set(() => ({ loading: true }));
         try {
-            const response = await axios.get(usedAPI + 'product/');
+            const response = await axios.get(usedAPI + 'products/' + id);
             set((state) => ({
-                productData: (state.productData = response.data.products), // really anoying that it wants to name the array 
+                singleProduct: (state.singleProduct = response.data.product), // really anoying that it wants to name the array 
                 loading: false
                 }));
             } catch (err) {
             set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
+          }
+          finally{
+            console.log("get product by id");
+            console.log(get.singleProduct);
           }
     },
     setProductFilter: (value) =>{
