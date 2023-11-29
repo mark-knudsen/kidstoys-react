@@ -7,6 +7,9 @@ function CartPage() {
     const cart = cartStore((state) => state.cartData);
     const clearCart = cartStore((state) => state.clearCart);
 
+    //
+    //https://stackoverflow.com/questions/42201031/some-files-js-css-images-arent-loading-after-refreshing-the-page-in-react-j
+
     let navigate = useNavigate(); 
     const routeChange = () =>{ 
       let path; 
@@ -25,7 +28,6 @@ function CartPage() {
 
     return (
         <div>
-
           <div className="container">
                 <div className="card mb-3 cartItem cartCheckoutDiv">
                     <div className="row">
