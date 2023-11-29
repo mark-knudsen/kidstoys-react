@@ -27,6 +27,18 @@ const useStore = create((set, get) => ({
             set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
           }
     },
+    getProductDataById: async () => {
+        set(() => ({ loading: true }));
+        try {
+            const response = await axios.get(usedAPI + 'product/');
+            set((state) => ({
+                productData: (state.productData = response.data.products), // really anoying that it wants to name the array 
+                loading: false
+                }));
+            } catch (err) {
+            set(() => ({ hasErrors: true, loading: false, errorMessage: err.message}));
+          }
+    },
     setProductFilter: (value) =>{
         set(() => ({ productFilter: value.toLowerCase() }));
     },
