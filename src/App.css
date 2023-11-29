@@ -43,6 +43,10 @@ img {
   /*border-radius: 12px;*/
 }
 
+i, a{
+  cursor: pointer;
+}
+
 .Search {
   margin-left: 1rem;  
   margin-right: 1rem;
@@ -90,6 +94,12 @@ img {
 
 .navbar-color {
   background-color: #cba673;
+}
+
+.navbar{
+  img{
+    cursor: pointer;
+  }
 }
 
 .nav-search {

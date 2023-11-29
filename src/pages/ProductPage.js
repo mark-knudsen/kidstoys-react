@@ -26,12 +26,11 @@ function ProductPage() {
       }, 1000);
     };
 
-       let alert = <div></div>;
+    let alert = <div></div>;
   
     if (showAlert === true) {
       alert = <div className="alert alert-info alert-dismissible" role="alert">
-        {JSON.stringify(cart)}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     }
    
@@ -67,8 +66,6 @@ function ProductPage() {
                     </div>
                   </div>
                 </div> 
- 
- 
               </div>
             </div>
           </div>
