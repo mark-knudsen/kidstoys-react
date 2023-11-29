@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage.js';
 import ProductsPage from './pages/ProductsPage.js';
 import { useNavigate } from "react-router-dom";
 import { Route, Routes } from 'react-router-dom';
+import logo from "./images/kidstoys-logo.png";
 
 function App() {
   let navigate = useNavigate();
@@ -17,7 +18,7 @@ function App() {
     <div className="App">
       <nav className="navbar sticky-top navbar-expand-lg navbar-light navbar-color">
         <div className="container-fluid">
-          <img src="./kidstoys-logo.png" className="navbar-brand" onClick={() => navigate("kidstoys")} />
+          <img src={logo} className="navbar-brand" onClick={() => navigate("kidstoys")} />
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -31,7 +32,7 @@ function App() {
                 <a className="nav-link active" aria-current="page" onClick={() => navigate("kidstoys")}>Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onNameClick={() => navigate("kidstoys/products")}>Products</a>
+                <a className="nav-link" onClick={() => navigate("kidstoys/products")}>Products</a>
               </li>
               {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,12 +52,12 @@ function App() {
       </nav>
 
       <header className="App-header">
-        <Routes>
-          <Route path="kidstoys" element={<FrontPage></FrontPage>}></Route>
-          <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
-          <Route path="kidstoys/product/:id" element={<ProductPage></ProductPage>}></Route>
-          <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
-        </Routes>
+          <Routes>
+            <Route path="kidstoys" element={<FrontPage></FrontPage>}></Route>
+            <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
+            <Route path="kidstoys/product/:id" element={<ProductPage></ProductPage>}></Route>
+            <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
+          </Routes>
       </header>
     </div>
   );

@@ -1,19 +1,16 @@
 import '../App.css';
 import useStore from '../store/store';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function FrontPage() {
     const getThreeProducts = useStore(state => state.getThreeNewestProducts);
     const frontpageProducts = useStore(state => state.frontpageProducts);
 
-    //const products = useStore(state => state.products);
-
     useEffect(() => {
         getThreeProducts();
         
     }, []);
-
 
     let navigate = useNavigate();
     const routeChange = () => {
@@ -22,9 +19,9 @@ function FrontPage() {
     }
 
     let productContent = frontpageProducts.map((product, id) => {
-        return <div className="col">
+        return <div className="col" key={id}>
             <div className="card card-style d-flex justify-content-center align-items-center">
-                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
+                <img src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
                 <div className="card-body text-center">
                     <h5 className="card-title">{product.name}</h5>
                     <p className="card-text">{product.description}</p>
@@ -33,7 +30,6 @@ function FrontPage() {
             </div>
         </div>
     })
-
 
     return (
         <div className="container">
@@ -47,15 +43,15 @@ function FrontPage() {
                     </div>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="../images/test/test-new-1.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-1.jpg"} className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-2.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-2.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-3.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-3.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                     </div>
