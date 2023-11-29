@@ -13,6 +13,14 @@ function CartPage() {
       navigate(path);
     }
 
+    const subTotal = () => {
+        let subTotal = 0;
+        cart.forEach(element => {
+            subTotal += element.price;
+        });
+        return subTotal;
+    }
+
     let cartListContent = <CartList cart={cart}></CartList>
 
     return (
@@ -26,8 +34,8 @@ function CartPage() {
                             <p className="card-text mt-5">Subtotal:</p>
                         </div>
                         <div className="col-6 text-start">
-                            <p className='card-text mt-5'>1311</p>
-                            <p className='card-text mt-5'>99767 $</p>
+                            <p className='card-text mt-5'>{cart.length}</p>
+                            <p className='card-text mt-5'>{subTotal()} $</p>
                         </div>
                     </div>
                     <div className='row'>

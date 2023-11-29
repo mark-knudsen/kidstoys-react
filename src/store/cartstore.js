@@ -3,6 +3,7 @@ import { produce } from "immer"; // to be able to push object to array
 
 const cartStore = create((set) => ({
     cartData: [{
+        "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
         "price": 6,
@@ -10,6 +11,7 @@ const cartStore = create((set) => ({
         "quantity": 100
     },
     {
+        "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
         "price": 6,
@@ -17,6 +19,7 @@ const cartStore = create((set) => ({
         "quantity": 100
     },
     {
+        "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
         "price": 6,

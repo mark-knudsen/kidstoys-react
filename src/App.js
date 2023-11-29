@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="kidstoys/" element={<FrontPage></FrontPage>}></Route>
           <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
-          <Route path="kidstoys/product" element={<ProductPage></ProductPage>}></Route>
+          <Route path="kidstoys/product/:id" element={<ProductPage></ProductPage>}></Route>
           <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
         </Routes>
       </header>
