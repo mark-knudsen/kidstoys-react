@@ -2,9 +2,14 @@ import '../App.css';
 import useStore from '../store/store';
 
 function FrontPage() {
+    const products = useStore(state => state.products);
+
+
+
 
     return (
         <div class="container">
+            <br/>
             <div class="carousel-container text-center">
                 <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel" >
                     <div class="carousel-indicators">
@@ -38,7 +43,9 @@ function FrontPage() {
             </div>
 
             <div>
+            <br/>
                 <h1>Recent added products</h1>
+                <br/>
             </div>
 
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
@@ -73,7 +80,7 @@ function FrontPage() {
                     </div>
                 </div>
             </div>
-
+            <br/><br/>
 
         </div>
 
