@@ -1,15 +1,43 @@
 import '../App.css';
 import useStore from '../store/store';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function FrontPage() {
-    const products = useStore(state => state.products);
+    const getThreeProducts = useStore(state => state.getThreeNewestProducts);
+    const frontpageProducts = useStore(state => state.frontpageProducts);
+
+    //const products = useStore(state => state.products);
+
+    useEffect(() => {
+        getThreeProducts();
+        
+    }, []);
 
 
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path;
+        navigate(path);
+    }
+
+    let productContent = frontpageProducts.map((product, id) => {
+        return <div className="col">
+            <div className="card card-style d-flex justify-content-center align-items-center">
+                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
+                <div className="card-body text-center">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.description}</p>
+                    <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    })
 
 
     return (
         <div class="container">
-            <br/>
+            <br />
             <div class="carousel-container text-center">
                 <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel" >
                     <div class="carousel-indicators">
@@ -43,13 +71,22 @@ function FrontPage() {
             </div>
 
             <div>
-            <br/>
+                <br />
                 <h1>Recent added products</h1>
-                <br/>
+                <br />
             </div>
 
+
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
-                <div className="col">
+                {productContent}
+
+
+
+
+
+
+
+                {/*   <div className="col">
                     <div className="card card-style d-flex justify-content-center align-items-center">
                         <img src="../images/test/test-1.jpg" className="card-img-top img-fluid" alt="..."></img>
                         <div className="card-body text-center">
@@ -78,9 +115,10 @@ function FrontPage() {
                             <a href="#" className="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
-                </div>
+                </div> */}
+
             </div>
-            <br/><br/>
+            <br /><br />
 
         </div>
 

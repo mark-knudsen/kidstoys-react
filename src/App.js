@@ -28,10 +28,10 @@ function App() {
             </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/kidstoys">Home</a>
+                <a class="nav-link active" aria-current="page" onClick={() => navigate("kidstoys")}>Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/kidstoys/products">Products</a>
+                <a class="nav-link" onClick={() => navigate("kidstoys/products")}>Products</a>
               </li>
               {/* <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
