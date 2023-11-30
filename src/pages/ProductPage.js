@@ -17,8 +17,8 @@ function ProductPage() {
     getProduct(params.id);
   }, []);
 
-  const sendProductToCart = (productItem) => {
-    sendToCart(productItem);
+  const sendProductToCart = () => {
+    sendToCart(product);
 
     setAlert(true);
     setTimeout(() => {
@@ -64,7 +64,7 @@ function ProductPage() {
                       </div>
                     </div>
                     <div className='col-md-3 mt-3'>
-                      <button type="button" className="btn btn-primary w-100">Add To Cart</button>
+                      <button type="button" className="btn btn-primary w-100" onClick={() => sendProductToCart()}>Add To Cart</button>
                     </div>
                   </div>
                 </div> 

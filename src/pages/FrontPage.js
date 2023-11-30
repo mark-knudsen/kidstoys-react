@@ -1,19 +1,16 @@
 import '../App.css';
 import useStore from '../store/store';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function FrontPage() {
     const getThreeProducts = useStore(state => state.getThreeNewestProducts);
     const frontpageProducts = useStore(state => state.frontpageProducts);
 
-    //const products = useStore(state => state.products);
-
     useEffect(() => {
         getThreeProducts();
 
     }, []);
-
 
     let navigate = useNavigate();
     const routeChange = () => {
@@ -62,26 +59,26 @@ function FrontPage() {
     });
 
     return (
-        <div class="container">
+        <div className="container">
             <br />
-            <div class="carousel-container text-center">
-                <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel" >
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <div className="carousel-container text-center">
+                <div id="carouselExampleCaptions" className="carousel slide " data-bs-ride="carousel" >
+                    <div className="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="../images/test/test-new-1.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-1.jpg"} className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-2.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-2.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-3.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-3.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                     </div>
@@ -102,16 +99,8 @@ function FrontPage() {
                 <br />
             </div>
 
-
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+            <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
                 {productContent}
-
-
-
-
-
-
-
                 {/*   <div className="col">
                     <div className="card card-style d-flex justify-content-center align-items-center">
                         <img src="../images/test/test-1.jpg" className="card-img-top img-fluid" alt="..."></img>
@@ -145,9 +134,7 @@ function FrontPage() {
 
             </div>
             <br /><br />
-
         </div>
-
     );
 }
 
