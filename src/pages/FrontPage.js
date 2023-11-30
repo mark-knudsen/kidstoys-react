@@ -44,7 +44,9 @@ function FrontPage() {
 
         return <div class="card-group">
             <div class="card card-style ">
-                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath.toLowerCase() + ".jpg"} class="card-img-top" alt="..." />
+            <img 
+                src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"}
+                class="card-img-top" alt="..." />
                 <div class="card-body">
                     <h5 class="card-title">{product.name}</h5>
                     <p class="card-text">{product.description}</p>
