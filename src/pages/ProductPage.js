@@ -23,13 +23,14 @@ function ProductPage() {
     setAlert(true);
     setTimeout(() => {
       setAlert(false)
-    }, 1000);
+    }, 3000);
   };
 
   let alert = <div></div>;
 
   if (showAlert === true) {
     alert = <div className="alert alert-info alert-dismissible" role="alert">
+      Product added to cart
       <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   }

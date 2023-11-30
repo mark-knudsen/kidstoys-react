@@ -2,32 +2,32 @@ import '../App.css';
 import cartStore from '../store/cartstore';
 import { useState, useEffect } from 'react';
 
-function CartItem({product}) { 
+function CartItem({ product }) {
     const cart = cartStore((state) => state.cartData);
     const [quantity, setQuantity] = useState(0);
 
     console.log(quantity);
 
-    const getQuantity = () =>{ // alot of code just for quantity, would be nice if you could just send it as props, but seems devilish difficult
+    const getQuantity = () => { // alot of code just for quantity, would be nice if you could just send it as props, but seems devilish difficult
         let quantity = 0;
         cart.forEach(element => {
-            if(element.id === product.id) quantity++;
+            if (element.id === product.id) quantity++;
         });
         setQuantity(quantity);
     }
 
     useEffect(() => {
         getQuantity();
-      }, []);
+    }, []);
 
     return (
         <div>
             <div className="container">
                 <div className="card mb-3 cartItem">
                     <div className="row">
-                        <div className="col-3">    
+                        <div className="col-3">
                             <div className="col-md-4">
-                                <img className='rounded' src={require("../images/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg")} />
+                                <img className='rounded' src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />
                             </div>
                         </div>
                         <div className="col-6 text-start biggerMarginT">
