@@ -10,12 +10,12 @@ const useStore = create((set, get) => ({
     hasErrors: false,
     errorMessage: "no error",
 
+    frontpageProducts: [],
     singleProduct: [],
     productData: [],
     productFilter: "",
     categoryData: [],
     categoryFilter: "",
-    frontpageProducts: [],
 
     getProductData: async () => {
         set(() => ({ loading: true }));
@@ -40,9 +40,20 @@ const useStore = create((set, get) => ({
         } catch (err) {
             set(() => ({ hasErrors: true, loading: false, errorMessage: err.message }));
         }
-        finally {
-            console.log("get product by id");
-            console.log(get.singleProduct);
+    },
+    getThreeNewestProducts: async () => {
+        set(() => ({ loading: true }));
+        try {
+            const response = await axios.get(usedAPI + 'products');
+            const sortedProducts = response.data.products.sort(function (a, b) {
+                return new Date(b.created_at) - new Date(a.created_at);
+            });
+            const newestProducts = sortedProducts.slice(0, 3);
+            set((state) => ({ 
+                frontpageProducts: (state.frontpageProducts = newestProducts)
+            }));
+        } catch (err) {
+            set(() => ({ hasErrors: true, loading: false, errorMessage: err.message }));
         }
     },
     setProductFilter: (value) => {
@@ -63,25 +74,6 @@ const useStore = create((set, get) => ({
         console.log("Set cat with" + value);
         set(() => ({ categoryFilter: value }));
     },
-    getThreeNewestProducts: async () => {
-        set(() => ({ loading: true }));
-        try {
-            const response = await axios.get(usedAPI + 'products');
-            const threeProducts = response.data.products.sort(function (a, b) {
-                return new Date(b.created_at) - new Date(a.created_at);
-            });
-            console.log(JSON.stringify(threeProducts));
-            const newProducts = threeProducts.slice(0, 3);
-            set((state) => ({ 
-                frontpageProducts: (state.frontpageProducts = newProducts)
-            }));
-
-        } catch (err) {
-            set(() => ({ hasErrors: true, loading: false, errorMessage: err.message }));
-        }
-
-    },
-
 }));
 
 export default useStore;

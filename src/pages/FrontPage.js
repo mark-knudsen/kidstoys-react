@@ -1,39 +1,63 @@
 import '../App.css';
 import useStore from '../store/store';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function FrontPage() {
     const getThreeProducts = useStore(state => state.getThreeNewestProducts);
     const frontpageProducts = useStore(state => state.frontpageProducts);
 
-    //const products = useStore(state => state.products);
-
     useEffect(() => {
         getThreeProducts();
-        
     }, []);
-
 
     let navigate = useNavigate();
     const routeChange = () => {
         let path;
         navigate(path);
     }
+    /* 
+        let productContent = frontpageProducts.map((product, id) => {
+            return <div className="col">
+                <div className="card card-style d-flex justify-content-center align-items-center">
+                    <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath.toLowerCase() + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
+                    <div className="card-body text-center">
+                        <h5 className="card-title">{product.name}</h5>
+                        <p className="card-text">{product.description}</p>
+                        <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        });
+     */
+    const stringToDate = (string) => {
+        let newDate = new Date(string);
+        const year = newDate.getFullYear().toString();
+        const month = newDate.getMonth().toString();
+        const day = newDate.getDay().toString();
+        const newString = day + "-" + month + "-" + year
 
+        return newString;
+    }
     let productContent = frontpageProducts.map((product, id) => {
-        return <div className="col">
-            <div className="card card-style d-flex justify-content-center align-items-center">
-                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
-                <div className="card-body text-center">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">{product.description}</p>
+
+        return <div class="card-group">
+            <div class="card card-style ">
+            <img 
+                src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"}
+                class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">{product.name}</h5>
+                    <p class="card-text">{product.description}</p>
                     <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
+
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Posted {stringToDate(product.created_at)}</small>
                 </div>
             </div>
         </div>
-    })
-
+    });
 
     return (
         <div className="container">
@@ -47,15 +71,15 @@ function FrontPage() {
                     </div>
                     <div className="carousel-inner">
                         <div className="carousel-item active">
-                            <img src="../images/test/test-new-1.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-1.jpg"} className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-2.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-2.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                         <div className="carousel-item">
-                            <img src="../images/test/test-new-3.jpg" className="d-block w-100 img-fluid" alt="..."></img>
+                            <img src={process.env.PUBLIC_URL + "../images/test/test-new-3.jpg"}  className="d-block w-100 img-fluid" alt="..."></img>
 
                         </div>
                     </div>
