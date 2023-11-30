@@ -44,6 +44,8 @@ function ProductPage() {
          
                  <div className="col-md-4 border-end">
                   <img src={require("../images/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg")}/>
+                  {/* <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath.toLowerCase() + ".jpg"} /> */}
+
                 </div>
  
                 <div className="col-md-8">

@@ -26,12 +26,12 @@ function App() {
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" onClick={() => navigate("kidstoys")}>Home</a>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link active" aria-current="page" onClick={() => navigate("kidstoys")}>Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" onClick={() => navigate("kidstoys/products")}>Products</a>
+              <li className="nav-item">
+                <a className="nav-link" onClick={() => navigate("kidstoys/products")}>Products</a>
               </li>
               {/* <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,9 +45,20 @@ function App() {
                             </ul>
                         </li> */}
             </ul>
-            <i className="bi bi-cart3" onClick={() => navigate("kidstoys/cart")}></i>
+                <i className="bi bi-cart3" onClick={() => navigate("kidstoys/cart")}></i>
+
+
+            {/* Button trigger offcanvas */}
+
+           {/*  <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+
+              <i className="bi bi-cart3"></i>
+            </button> */}
+
           </div>
         </div>
+
+
       </nav>
 
       <header className="App-header">
@@ -58,6 +69,16 @@ function App() {
           <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
         </Routes>
       </header>
+
+      <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <p>Try scrolling the rest of the page to see this option in action.</p>
+        </div>
+      </div>
     </div>
   );
 }

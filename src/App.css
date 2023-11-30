@@ -14,14 +14,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #ece8e0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #5caae3;
 }
 
 .App-link {
@@ -90,6 +90,7 @@ i, a{
 
 .card-style {
   justify-content: right;
+  background-color:#ece4d0
 }
 
 .navbar-color {
@@ -104,6 +105,7 @@ i, a{
 
 .nav-search {
   width: 80%;
-  margin-right: 50px;
+  margin-right: 9.5%;
+  margin-left: 8%;
 
 }

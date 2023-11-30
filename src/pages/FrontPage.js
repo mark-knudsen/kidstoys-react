@@ -11,7 +11,7 @@ function FrontPage() {
 
     useEffect(() => {
         getThreeProducts();
-        
+
     }, []);
 
 
@@ -20,20 +20,46 @@ function FrontPage() {
         let path;
         navigate(path);
     }
+    /* 
+        let productContent = frontpageProducts.map((product, id) => {
+            return <div className="col">
+                <div className="card card-style d-flex justify-content-center align-items-center">
+                    <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath.toLowerCase() + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
+                    <div className="card-body text-center">
+                        <h5 className="card-title">{product.name}</h5>
+                        <p className="card-text">{product.description}</p>
+                        <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        });
+     */
+    const stringToDate = (string) => {
+        let newDate = new Date(string);
+        const year = newDate.getFullYear().toString();
+        const month = newDate.getMonth().toString();
+        const day = newDate.getDay().toString();
+        const newString = day + "-" + month + "-" + year
 
+        return newString;
+    }
     let productContent = frontpageProducts.map((product, id) => {
-        return <div className="col">
-            <div className="card card-style d-flex justify-content-center align-items-center">
-                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath + ".jpg"} className="card-img-top img-fluid" alt="..."></img>
-                <div className="card-body text-center">
-                    <h5 className="card-title">{product.name}</h5>
-                    <p className="card-text">{product.description}</p>
+
+        return <div class="card-group">
+            <div class="card card-style ">
+                <img src={process.env.PUBLIC_URL + "/images/test/" + product.imagePath.toLowerCase() + ".jpg"} class="card-img-top" alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">{product.name}</h5>
+                    <p class="card-text">{product.description}</p>
                     <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
+
+                </div>
+                <div class="card-footer">
+                    <small class="text-body-secondary">Posted {stringToDate(product.created_at)}</small>
                 </div>
             </div>
         </div>
-    })
-
+    });
 
     return (
         <div class="container">
