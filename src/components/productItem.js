@@ -1,6 +1,6 @@
 import '../App.css';
 
-function ProductItem({ product }) {
+function ProductItem({product}) {
     return (
         <div className='border-2 border-black rounded-md imageZoom'>
             <img src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />

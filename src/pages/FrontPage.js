@@ -9,7 +9,6 @@ function FrontPage() {
 
     useEffect(() => {
         getThreeProducts();
-
     }, []);
 
     let navigate = useNavigate();
