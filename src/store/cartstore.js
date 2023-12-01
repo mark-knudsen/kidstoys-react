@@ -6,6 +6,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
@@ -14,6 +15,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
@@ -22,6 +24,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
@@ -30,7 +33,13 @@ const cartStore = create((set) => ({
         set(produce((state) => {
             state.cartData.push(product); 
         }));
-    }, 
+    },
+    removeFromCart: (product) => {
+        set(produce((state) => {
+            const index = state.cartDate.indexOf(product.id);
+            state.cartData = state.cartData.splice(index, 1);
+        }));
+    },
     clearCart: () =>{
         set(() => ({ cartData: [] }));
     }

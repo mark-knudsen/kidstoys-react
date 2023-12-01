@@ -14,6 +14,7 @@ function CartList({cart}) {
     return (
         <div className='biggerMarginT'>
             {productContent} 
+            
         </div>
     );
 }

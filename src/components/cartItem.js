@@ -6,7 +6,7 @@ function CartItem({ product }) {
     const cart = cartStore((state) => state.cartData);
     const [quantity, setQuantity] = useState(0);
 
-    console.log(quantity);
+    //console.log(quantity);
 
     const getQuantity = () => { // alot of code just for quantity, would be nice if you could just send it as props, but seems devilish difficult
         let quantity = 0;
@@ -27,7 +27,7 @@ function CartItem({ product }) {
                     <div className="row">
                         <div className="col-3">
                             <div className="col-md-4">
-                                <img className='rounded' src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />
+                                <img className='rounded' src={process.env.PUBLIC_URL + "/images/kidstoys/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />
                             </div>
                         </div>
                         <div className="col-6 text-start biggerMarginT">

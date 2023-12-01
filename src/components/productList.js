@@ -14,7 +14,7 @@ function ProductList({products}) {
     // });
 
     return (
-        <div>
+        <div className='productList'>
             <h1>product list</h1>
             {productContent}   
         </div>
