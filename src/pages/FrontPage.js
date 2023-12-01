@@ -101,37 +101,7 @@ function FrontPage() {
             </div>
 
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
-                {productContent}
-                {/*   <div className="col">
-                    <div className="card card-style d-flex justify-content-center align-items-center">
-                        <img src="../images/test/test-1.jpg" className="card-img-top img-fluid" alt="..."></img>
-                        <div className="card-body text-center">
-                            <h5 className="card-title">Kids toy 1</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card card-style d-flex justify-content-center align-items-center">
-                        <img src="../images/test/test-2.jpg" className="card-img-top img-fluid" alt="..."></img>
-                        <div className="card-body text-center">
-                            <h5 className="card-title">Kids toy 1</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div className="col">
-                    <div className="card card-style d-flex justify-content-center align-items-center">
-                        <img src="../images/test/test-3.jpg" className="card-img-top img-fluid" alt="..."></img>
-                        <div className="card-body text-center">
-                            <h5 className="card-title">Kids toy 1</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" className="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div> */}
+                {productContent}     
 
             </div>
             <br /><br />
