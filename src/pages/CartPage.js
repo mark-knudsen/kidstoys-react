@@ -8,9 +8,6 @@ function CartPage() {
     const clearCart = cartStore((state) => state.clearCart);
     const removeProduct = cartStore((state) => state.removeProduct);
 
-    //
-    //https://stackoverflow.com/questions/42201031/some-files-js-css-images-arent-loading-after-refreshing-the-page-in-react-j
-
     let navigate = useNavigate();
     const routeChange = () => {
         let path;
@@ -20,7 +17,7 @@ function CartPage() {
     const subTotal = () => {
         let subTotal = 0;
         cart.forEach(element => {
-            subTotal += element.price;
+            subTotal += parseFloat(element.price);
         });
         return subTotal;
     }
@@ -36,10 +33,9 @@ function CartPage() {
                             <p className="card-text mt-5">Quantity:</p>
                             <p className="card-text mt-5">Subtotal:</p>
                         </div>
-                        <div className="col-6 text-start">
-                            
+                        <div className="col-6 text-start">   
                             <p className='card-text mt-5'>{cart.length}</p>
-                            <p className='card-text mt-5'>{subTotal()} $</p>
+                            <p className='card-text mt-5'>{subTotal()} kr</p>
                         </div>
                     </div>
                     <div className='row'>
@@ -47,10 +43,7 @@ function CartPage() {
                             <button type="button" className="btn btn-primary" onClick={() => navigate("../kidstoys/products")}>Continue Shopping</button>
                             <button type="button" className="btn btn-danger" onClick={() => clearCart()}>Checkout</button>
                         </div>
-                  
                     </div>
-
-
                 </div>
             </div>
             {cartListContent}

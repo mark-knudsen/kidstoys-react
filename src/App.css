@@ -44,8 +44,7 @@ img {
   /*border-radius: 12px;*/
 }
 
-i,
-a {
+i, a {
   cursor: pointer;
 }
 
@@ -57,7 +56,6 @@ a {
 .Search-Btn {
   margin-left: 1rem;
   margin-right: 1rem;
-
 }
 
 .cartItem {
@@ -100,6 +98,10 @@ a {
 /*.card-footer {
   background-color:#cba673;
 }*/
+
+.invisibleButton{
+  visibility: hidden;
+}
 
 .navbar-color {
   background-color: #cba673;

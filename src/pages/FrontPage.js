@@ -41,19 +41,18 @@ function FrontPage() {
     }
     let productContent = frontpageProducts.map((product, id) => {
 
-        return <div class="card-group">
-            <div class="card card-style ">
+        return <div className="card-group" key={id}>
+            <div className="card card-style ">
             <img 
                 src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"}
-                class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">{product.name}</h5>
-                    <p class="card-text">{product.description}</p>
-                    <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">Go somewhere</a>
-
+                className="card-img-top" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">{product.name}</h5>
+                    <p className="card-text">{product.description}</p>
+                    <a onClick={() => navigate("product/" + product.id)} className="btn btn-primary">See more</a>
                 </div>
-                <div class="card-footer">
-                    <small class="text-body-secondary">Posted {stringToDate(product.created_at)}</small>
+                <div className="card-footer">
+                    <small className="text-body-secondary">Posted {stringToDate(product.created_at)}</small>
                 </div>
             </div>
         </div>
@@ -93,16 +92,13 @@ function FrontPage() {
                     </button>
                 </div>
             </div>
-
             <div>
                 <br />
                 <h1>Recent added products</h1>
                 <br />
             </div>
-
             <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
                 {productContent}     
-
             </div>
             <br /><br />
         </div>
