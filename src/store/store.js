@@ -22,7 +22,7 @@ const useStore = create((set, get) => ({
         try {
             const response = await axios.get(usedAPI + 'products');
             set((state) => ({
-                productData: (state.productData = response.data.products), // really anoying that it wants to name the array 
+                productData: (state.productData = response.data.products), // IMPORTANT, remove .products when using WordPress 
                 loading: false
             }));
         } catch (err) {

@@ -1,7 +1,6 @@
 import '../App.css';
 import useStore from '../store/store.js';
-import cartStore from '../store/cartstore.js';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ProductList from '../components/productList.js';
 import Loading from '../components/loading.js';
 
@@ -21,7 +20,7 @@ function ProductsPage() {
       getCategories(); 
     }, []);
   
-    let productListContent = <ProductList products={products}></ProductList>
+    let productListContent = <ProductList className="productlist" products={products}></ProductList>
   
     let categoryOptions = (categories.map((category, id) =>{
       return <option value={category} onClick={() => setCategoryFilter(category)} key={id}> {category.name}</option>

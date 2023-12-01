@@ -6,7 +6,7 @@ function CartItem({ product }) {
     const cart = cartStore((state) => state.cartData);
     const [quantity, setQuantity] = useState(0);
 
-    console.log(quantity);
+    //console.log(quantity);
 
     const getQuantity = () => { // alot of code just for quantity, would be nice if you could just send it as props, but seems devilish difficult
         let quantity = 0;
