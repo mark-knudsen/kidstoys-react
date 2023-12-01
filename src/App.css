@@ -94,6 +94,10 @@ i, a {
   justify-content: right;
   background-color: #fff2d8
 }
+.see-more{
+  justify-content: right;
+  
+}
 
 /*.card-footer {
   background-color:#cba673;

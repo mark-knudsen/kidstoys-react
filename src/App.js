@@ -4,7 +4,7 @@ import CartPage from './pages/CartPage.js';
 import ProductPage from './pages/ProductPage.js';
 import ProductsPage from './pages/ProductsPage.js';
 import { useNavigate } from "react-router-dom";
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Redirect, Navigate } from 'react-router-dom';
 import logo from "./images/kidstoys-logo.png";
 
 function App() {
@@ -46,12 +46,12 @@ function App() {
                             </ul>
                         </li> */}
             </ul>
-                <i className="bi bi-cart3" onClick={() => navigate("kidstoys/cart")}></i>
+            <i className="bi bi-cart3" onClick={() => navigate("kidstoys/cart")}></i>
 
 
             {/* Button trigger offcanvas */}
 
-           {/*  <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            {/*  <button className="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
 
               <i className="bi bi-cart3"></i>
             </button> */}
@@ -63,12 +63,14 @@ function App() {
       </nav>
 
       <header className="App-header">
-          <Routes>
-            <Route path="kidstoys" element={<FrontPage></FrontPage>}></Route>
-            <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
-            <Route path="kidstoys/product/:id" element={<ProductPage></ProductPage>}></Route>
-            <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
-          </Routes>
+        <Routes>
+          <Route path='/' element={<Navigate to='/kidstoys' />} />
+          <Route path="kidstoys" element={<FrontPage></FrontPage>}></Route>
+          <Route path="kidstoys/cart" element={<CartPage></CartPage>}></Route>
+          <Route path="kidstoys/product/:id" element={<ProductPage></ProductPage>}></Route>
+          <Route path="kidstoys/products" element={<ProductsPage></ProductsPage>}></Route>
+          <Route path='*' element={<Navigate to='/kidstoys' />} />
+        </Routes>
       </header>
 
       <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
