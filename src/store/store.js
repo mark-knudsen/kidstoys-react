@@ -48,7 +48,6 @@ const useStore = create((set, get) => ({
             const sortedProducts = response.data.products.sort(function (a, b) {
                 return new Date(b.created_at) - new Date(a.created_at);
             });
-            //console.log(JSON.stringify(threeProducts));
             const newestProducts = sortedProducts.slice(0, 3);
             set((state) => ({ 
                 frontpageProducts: (state.frontpageProducts = newestProducts)
@@ -75,7 +74,6 @@ const useStore = create((set, get) => ({
         console.log("Set cat with" + value);
         set(() => ({ categoryFilter: value }));
     },
-
 }));
 
 export default useStore;
