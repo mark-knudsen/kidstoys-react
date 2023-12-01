@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Tilt Neon', sans-serif;
 }
 
 .App-logo {
@@ -115,4 +116,8 @@ a {
   margin-right: 10.5%;
   margin-left: 8%;
 
+}
+
+.product-card {
+  width: 100%;
 }

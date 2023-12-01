@@ -30,7 +30,13 @@ const cartStore = create((set) => ({
         set(produce((state) => {
             state.cartData.push(product); 
         }));
-    }, 
+    },
+    removeFromCart: (product) => {
+        set(produce((state) => {
+            const index = state.cartDate.indexOf(product.id);
+            state.cartData = state.cartData.splice(index, 1);
+        }));
+    },
     clearCart: () =>{
         set(() => ({ cartData: [] }));
     }
