@@ -116,3 +116,27 @@ a {
   margin-left: 8%;
 
 }
+/* Add this to your App.css or create a new CSS file */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 5rem; /* Set the width to your desired size */
+    height: 5rem; /* Set the height to your desired size */
+    cursor: #61dafb;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    font-size: 4rem; /* Set the font size to your desired size */
+    color: #fff; /* Set the color to your desired color */
+}
+
+.carousel-indicators button {
+  width: 3rem; /* Set the width to your desired size */
+  height: 2rem; /* Set the height to your desired size */
+  background-color:#5caae3; /* Set the background color to your desired color */
+}
+
+/* You can also change the color of the indicators when active */
+.carousel-indicators .active {
+  background-color:#5caae3; /* Set the background color to your desired color */
+}
