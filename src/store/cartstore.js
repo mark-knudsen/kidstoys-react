@@ -6,6 +6,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
@@ -14,6 +15,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
@@ -22,6 +24,7 @@ const cartStore = create((set) => ({
         "id": 1,
         "name": "Hotweels hotrod",
         "description": "It's so cool",
+        "imagePath": "yellow-toy-truck-yard",
         "price": 6,
         "categoryId": 4,
         "quantity": 100
