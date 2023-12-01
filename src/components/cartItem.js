@@ -27,7 +27,7 @@ function CartItem({ product }) {
                     <div className="row">
                         <div className="col-3">
                             <div className="col-md-4">
-                                <img className='rounded' src={process.env.PUBLIC_URL + "/images/test/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />
+                                <img className='rounded' src={process.env.PUBLIC_URL + "/images/kidstoys/" + ((product.imagePath != null) ? product.imagePath.toLowerCase() : "none") + ".jpg"} />
                             </div>
                         </div>
                         <div className="col-6 text-start biggerMarginT">
